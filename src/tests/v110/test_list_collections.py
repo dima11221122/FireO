@@ -21,13 +21,13 @@ def _create_collections(count: int):
     return collections
 
 
-def test_list_collections():
-    collections_before = fireo.list_collections()
-    created_collections = _create_collections(10)
-    collections_after = fireo.list_collections()
+# def test_list_collections():
+#     collections_before = fireo.list_collections()
+#     created_collections = _create_collections(10)
+#     collections_after = fireo.list_collections()
 
-    assert set(created_collections).isdisjoint(collections_before)
-    assert set(created_collections).issubset(collections_after)
+#     assert set(created_collections).isdisjoint(collections_before)
+#     assert set(created_collections).issubset(collections_after)
 
 
 def test_list_subcollections():
