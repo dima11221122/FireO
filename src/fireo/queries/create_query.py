@@ -66,7 +66,7 @@ class CreateQuery(BaseQuery):
         # find next time which fields are changed
         # when we are going to update it
         self.model._field_list = []
-        self.model._field_changed = []
+        self.model._field_changed = set()
 
     def _doc_ref(self):
         """create document ref from firestore"""

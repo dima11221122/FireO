@@ -114,7 +114,7 @@ class Model(metaclass=ModelMeta):
     # Track which fields are changed or not
     # it is useful when updating document
     _field_list = []
-    _field_changed = []
+    _field_changed = set()
 
     # check instance is modified or not
     # When you get the document from firestore or
@@ -432,7 +432,7 @@ class Model(metaclass=ModelMeta):
     def __setattr__(self, key, value):
         """Keep track which filed values are changed"""
         if key in self._field_list or not self._instance_modified:
-            self._field_changed.append(key)
+            self._field_changed.add(key)
         else:
             self._field_list.append(key)
         super(Model, self).__setattr__(key, value)
